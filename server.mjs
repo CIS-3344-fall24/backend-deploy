@@ -18,8 +18,10 @@ app.use(
 
 app.get("/api/articles", async(req, res) =>{ //Defines a route handler for GET requests to the /api/data endpoint. This function is asynchronous, allowing the use of await to handle asynchronous operations.
     const { q } = req.query; 
+    console.log("test");
+    const apiUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${req.query.q}&api-key=${process.env.NYT_API_KEY}`;
+    console.log(apiURL);
     try {
-        const apiUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${encodeURIComponent(q)}&api-key=${process.env.NYT_API_KEY}`;
         console.log(apiUrl);
         const response = await fetch(apiURL); 
         if (!response.ok) {
