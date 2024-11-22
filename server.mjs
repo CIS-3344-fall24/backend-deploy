@@ -20,7 +20,7 @@ app.get("/api/articles", async(req, res) =>{ //Defines a route handler for GET r
     const { q } = req.query; 
     try {
         const apiUrl = `http://localhost:3000/api/articles?q=${encodeURIComponent(q)}&api-key=${process.env.NYT_API_KEY}`;
-        
+        console.log(apiUrl);
         const response = await fetch(REACT_APP_NY_TIMES); 
         if (!response.ok) {
             throw new Error(`New York Times API Error: ${response.status} ${response.statusText}`);
