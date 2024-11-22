@@ -12,7 +12,7 @@ const apiKey = process.env.NY_TIMES_API_KEY // Accessing the API key from the en
 //This enables the frontend (running on a different port) to communicate with this server.
 app.use(
     cors({
-        origin: "http://localhost:3001"
+        origin: "http://localhost:3000"
     })
 )
 
