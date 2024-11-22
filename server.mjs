@@ -20,10 +20,10 @@ app.get("/api/articles", async(req, res) =>{ //Defines a route handler for GET r
     const { q } = req.query; 
     console.log("test");
     const apiUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${req.query.q}&api-key=${process.env.NYT_API_KEY}`;
-    console.log(apiURL);
+    console.log(apiUrl);
     try {
         console.log(apiUrl);
-        const response = await fetch(apiURL); 
+        const response = await fetch(apiUrl); 
         if (!response.ok) {
             throw new Error(`New York Times API Error: ${response.status} ${response.statusText}`);
         }
